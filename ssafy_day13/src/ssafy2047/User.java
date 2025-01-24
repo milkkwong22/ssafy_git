@@ -8,7 +8,13 @@ public class User {
     private String nickName;
     private String email;
 
-    // 생성자
+    @Override
+	public String toString() {
+		return "User [userCode=" + userCode + ", userId=" + userId + ", userPassword=" + userPassword + ", userName="
+				+ userName + ", nickName=" + nickName + ", email=" + email + "]";
+	}
+
+	// 생성자
     public User(int userCode, String userId, String userPassword, String userName, String nickName, String email) {
         this.userCode = userCode;
         this.userId = userId;

@@ -59,7 +59,7 @@ public class Article {
         return nickName;
     }
 
-    public void setNickName(String context) {
+    public void setNickName(String nickName) {
         this.nickName = nickName;
     }
 

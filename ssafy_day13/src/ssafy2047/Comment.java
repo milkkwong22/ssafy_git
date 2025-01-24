@@ -8,14 +8,16 @@ public class Comment {
     private int userCode;
     private String comment;
     private Date regDate;
+    private String nickName;
 
-    // 생성자
-    public Comment(int articleId, int commentId, int userCode, String comment, Date regDate) {
+	// 생성자
+    public Comment(int articleId, int commentId, int userCode, String nickName, String comment) {
         this.articleId = articleId;
         this.commentId = commentId;
         this.userCode = userCode;
+        this.nickName = nickName;
         this.comment = comment;
-        this.regDate = regDate;
+        this.regDate = new Date();
     }
 
     // Getter와 Setter
@@ -27,7 +29,13 @@ public class Comment {
         this.articleId = articleId;
     }
 
-    public int getCommentId() {
+    @Override
+	public String toString() {
+		return "Comment [articleId=" + articleId + ", commentId=" + commentId + ", userCode=" + userCode + ", comment="
+				+ comment + ", regDate=" + regDate + ", nickName=" + nickName + "]";
+	}
+
+	public int getCommentId() {
         return commentId;
     }
 
@@ -57,5 +65,12 @@ public class Comment {
 
     public void setRegDate(Date regDate) {
         this.regDate = regDate;
+    }
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 }

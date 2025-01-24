@@ -4,7 +4,7 @@ public class UserManager {
 	
 	User[] userList = new User[100];
 	User loginUser;
-	int memberSize = 0;
+	static int memberSize = 0;
 	
 	// 가입하기
 	void signUp() {
@@ -70,8 +70,8 @@ public class UserManager {
 				if (userList[i].getUserId().equals(inputId)) {
 					idExist = true;
 					idExistInx = i;
+					break;
 				}
-				break;
 			}
 			if (idExist == false) {
 				System.out.println("아이디가 존재하지 않습니다.");
