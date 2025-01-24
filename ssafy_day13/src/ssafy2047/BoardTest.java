@@ -45,7 +45,7 @@ public class BoardTest {
 	
 	//로그인 전 메인메뉴
 	static int menuLogout() { // 0. 종료,  1. task 미완료
-		System.out.println("----------------------------------------");
+		System.out.println("---------------------------------------- 메인메뉴");
 		System.out.println("작업을 선택하세요 \n1. 로그인 \n2. 회원가입 \n0. 종료");
 		while(true) {
 			int numChoose = Integer.parseInt(sc.nextLine());

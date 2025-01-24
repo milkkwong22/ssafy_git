@@ -7,7 +7,7 @@ public class ArticleManager {
 	
 	void writeAticle() {
 		while(true) {
-			System.out.println("----------------------------------------\n제목을 작성하세요 :");
+			System.out.println("----------------------------------------게시글 작성\n제목을 작성하세요 :");
 			String inputTitle = BoardTest.sc.nextLine();
 			System.out.println("내용을 작성하세요 (enter로 작성완료 :");
 			String inputContext = BoardTest.sc.nextLine();
@@ -26,14 +26,14 @@ public class ArticleManager {
 	
 	int viewArticle(Article article) {
 		article.setViewCount(article.getViewCount()+1);
-		System.out.println("----------------------------------------");
+		System.out.println("----------------------------------------게시글 탭");
 		System.out.println("제목 : "+article.getTitle());
 		System.out.println("작성자 : "+article.getNickName());
 		System.out.println("조회수 : "+article.getViewCount());
 		System.out.println("작성일 : "+article.getRegDate());
 		System.out.println("내용 :\n" );
 		BoardTest.printWithLineBreak(article.getContext(), 30);
-		System.out.println("----------------------------------------");
+		System.out.println("----------------------------------------댓글 탭");
 		BoardTest.cm.showComment(article.getArticleId());
 		System.out.println("----------------------------------------\n1. 게시글 삭제\n2. 댓글작성\n3. 댓글 삭제\n0. 종료");
 		while (true) {
@@ -42,7 +42,12 @@ public class ArticleManager {
 			case 1:{
 				if (BoardTest.currentUser.getUserCode() == article.getUserCode()) {
 					removeArticle(article.getArticleId());
-					System.out.println("게시글이 삭제되었습니다.");
+					System.out.println("본인 확인 완료! 게시글이 삭제되었습니다.");
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
 					return 0;
 				} else {
 					System.out.println("작성자가 아닙니다.");

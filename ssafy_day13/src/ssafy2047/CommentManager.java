@@ -11,7 +11,7 @@ public class CommentManager {
 	
 	void writeComment(int articleId) {
 		while (true) {
-			System.out.println("----------------------------------------\n내용을 작성하세요 (enter로 작성완료) :");
+			System.out.println("----------------------------------------댓글 작성\n내용을 작성하세요 (enter로 작성완료) :");
 			String inputContext = BoardTest.sc.nextLine();
 			System.out.println("----------------------------------------\n다음 내용으로 등록하시겠습니까?\n");
 			BoardTest.printWithLineBreak(inputContext, 30);
@@ -45,7 +45,12 @@ public class CommentManager {
 					if (BoardTest.currentUser.getUserCode()==commentList[i].getUserCode()) {
 						commentList[i] = null;
 						fillCommentList();
-						System.out.println("댓글 삭제 완료");
+						System.out.println("본인 확인 완료! 댓글이 삭제되었습니다.");
+						try {
+							Thread.sleep(2000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
 						break;
 					} else {
 						System.out.println("댓글 작성자가 아닙니다.");
